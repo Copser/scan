@@ -10,6 +10,9 @@ use Mix.Config
 config :scan,
   ecto_repos: [Scan.Repo]
 
+config :scan,
+  migration_primary_key: [name: :id, type: :binary_id]
+
 # Configures the endpoint
 config :scan, ScanWeb.Endpoint,
   url: [host: "localhost"],
@@ -24,6 +27,12 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+# Joken Token config
+config: :joken, default_signer: [
+  signer_alg: "HS256",
+  key_octet: "cuastv23dsqwdffnhjhdbkcbakjasqkfwir123o8r83bufbfbf1b"
+]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

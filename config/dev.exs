@@ -2,8 +2,6 @@ use Mix.Config
 
 # Configure your database
 config :scan, Scan.Repo,
-  username: "postgres",
-  password: "postgres",
   database: "scan_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
@@ -30,6 +28,8 @@ config :scan, ScanWeb.Endpoint,
     ]
   ]
 
+# FAST USER GENERATION
+config :bcrypt_elixir, :log_rounds, 4
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

@@ -1,0 +1,11 @@
+{application,cloudex,
+             [{applications,[kernel,stdlib,elixir,logger,tzdata,timex,
+                             httpoison]},
+              {description,"  A library that helps with uploading image files and urls to cloudinary.\n  Also provides a helper to generate transformations and cloudinary urls pointing to your images\n"},
+              {modules,['Elixir.Cloudex','Elixir.Cloudex.CloudinaryApi',
+                        'Elixir.Cloudex.DeletedImage',
+                        'Elixir.Cloudex.EnvOptions','Elixir.Cloudex.Settings',
+                        'Elixir.Cloudex.UploadedImage','Elixir.Cloudex.Url']},
+              {registered,[]},
+              {vsn,"1.3.0"},
+              {mod,{'Elixir.Cloudex.Settings',[]}}]}.
