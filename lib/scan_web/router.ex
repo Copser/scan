@@ -11,6 +11,17 @@ defmodule ScanWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug ScanWeb.AuthPlug
+  end
+
+  scope "/api" do
+    pipe_trough :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+            schema: ScanWeb.Schema
+
+    forward "/", Absinthe.Plug,
+            schema: ScanWeb.Schema
   end
 
   scope "/", ScanWeb do
