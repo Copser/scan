@@ -15,7 +15,7 @@ defmodule ScanWeb.Router do
   end
 
   scope "/api" do
-    pipe_trough :api
+    pipe_through :api
 
     forward "/graphiql", Absinthe.Plug.GraphiQL,
             schema: ScanWeb.Schema

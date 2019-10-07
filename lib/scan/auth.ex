@@ -11,7 +11,7 @@ defmodule Scan.Auth do
       |> where([t], t.email == ^email)
       |> Repo.one
 
-    has_valid_password = Bcrypt.verify_pass(password, (if user, do: user.password_hash, elase: ""))
+    has_valid_password = Bcrypt.verify_pass(password, (if user, do: user.password_hash, else: ""))
 
     if user && has_valid_password do
       {:ok, token, _} = Token.generate_and_sign(%{"id" => user.id})

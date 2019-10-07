@@ -29,7 +29,7 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 # Joken Token config
-config: :joken, default_signer: [
+config :joken, default_signer: [
   signer_alg: "HS256",
   key_octet: "cuastv23dsqwdffnhjhdbkcbakjasqkfwir123o8r83bufbfbf1b"
 ]
