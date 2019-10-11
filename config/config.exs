@@ -10,7 +10,7 @@ use Mix.Config
 config :scan,
   ecto_repos: [Scan.Repo]
 
-config :scan,
+config :scan, Scan.Repo,
   migration_primary_key: [name: :id, type: :binary_id]
 
 # Configures the endpoint
