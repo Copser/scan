@@ -17,6 +17,6 @@ defmodule Scan.Repo.Migrations.CreateItems do
       timestamps()
     end
 
-    create unique_index(:items, [:ean_code])
+    create index(:items, [:ean_code, :qr_id, :ean])
   end
 end

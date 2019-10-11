@@ -19,8 +19,7 @@ defmodule Scan.Product.Schema.Item do
 
   def changeset(item, attrs) do
     item
-    |> cast(attrs, [:qr_id, :ean_code, :ean, :description, :category, :market_text, :bullet, :brand_image, :image, :times_scaned])
+    |> cast(attrs, [:qr_id, :ean_code, :ean, :description, :category, :marketing_text, :bullet, :brand_image, :image, :times_scanned])
     |> validate_required([:qr_id, :ean_code, :ean])
-    |> unique_constraint([:ean_code])
   end
 end
