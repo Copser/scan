@@ -54,8 +54,7 @@ defmodule Scan.MixProject do
       {:faker, "~> 0.12"},
       {:gen_smtp, "~> 0.12"},
       {:ecto_enum, "~> 1.2"},
-      {:scrivener_ecto, "~> 2.0"},
-      {:cloudex, "~> 1.3.0"},
+      {:scrivener_ecto, "~> 2.0"}
 
     ]
   end
