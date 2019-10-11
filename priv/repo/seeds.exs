@@ -10,8 +10,8 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 alias Scan.Repo
-alias Scan.Profile.Schema.User
 alias Scan.Product.Schema.Item
+alias Scan.Profile.Schema.User
 
 users = Enum.map(0..5, fn _ ->
   %User{}
@@ -29,15 +29,17 @@ items = Enum.map(0..100, fn _ ->
   %Item{}
   |> Item.changeset(%{
     qr_id: Faker.UUID.v4,
-    ean_code: Faker.UUID.v4,
-    ean: Faker.UUID.v4,
+    ean_code: Faker.Util.join(1, ", ", &Faker.Code.isbn13/0),
+    ean: Faker.Util.join(1, ", ", &Faker.Code.isbn13/0),
     description: Faker.Commerce.product_name,
     category: Faker.Commerce.product_name_product,
-    marketing_text: Faker.Lorem.paragraph(2..3)
-    bullet: Faker.Lorem.paragraphs(2..3)
+    marketing_text: Faker.Lorem.paragraph(2..3),
+    bullet: Faker.Company.bs,
     brand_image: Faker.Avatar.image_url(200, 200),
     image: Faker.Avatar.image_url,
+    times_scanned: Faker.Util.digit,
   })
+  |> Repo.insert!
 end)
 
 IO.inspect(items)
