@@ -22,7 +22,7 @@ defmodule Scan.Profile.Reset do
     |> put_provider_option(:template_id, "")
     |> put_provider_option(:template_alias, "")
     |> put_provider_option(:template_model, %{code: user.password_reset_code, name: user.name})
-    |> Tms.Mailer.deliver()
+    |> Scan.Mailer.deliver()
 
     {:ok, user}
   end
