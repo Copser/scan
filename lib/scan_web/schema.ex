@@ -4,6 +4,7 @@ defmodule ScanWeb.Schema do
   import_types Absinthe.Type.Custom
   import_types ScanWeb.Schema.ProfileTypes
   import_types ScanWeb.Schema.ViewerTypes
+  import_types ScanWeb.Schema.ProductTypes
 
   alias Scan.Profile
 
@@ -27,6 +28,7 @@ defmodule ScanWeb.Schema do
 
   mutation do
     import_fields :profile_mutations
+    import_fields :product_mutations
   end
 
   def context(ctx) do
