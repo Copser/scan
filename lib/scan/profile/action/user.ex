@@ -1,4 +1,6 @@
 defmodule Scan.Profile.Action.User do
+	import Ecto.Query
+
   alias Scan.Token
   alias Scan.Repo
   alias Scan.Profile.Schema.User

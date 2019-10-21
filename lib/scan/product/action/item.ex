@@ -5,12 +5,12 @@ defmodule Scan.Product.Action.Item do
   alias Scan.Product.Schema.Item
 
 
-  def get_product(%{ean_code: ean_code}) when ean_code != nil do
-    item =
+  def get_product(%{ean_code: ean_code}) do
+    query =
      Item
-      |> where([t], t.ean_code == ^ean_code)
-      |> Repo.all
+     |> where([t], t.ean_code == ^ean_code)
+     |> Repo.one
 
-    {:ok, item}
+    {:ok, query}
   end
 end

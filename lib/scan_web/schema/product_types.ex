@@ -14,7 +14,6 @@ defmodule ScanWeb.Schema.ProductTypes do
     field :bullet, :string
     field :brand_image, :string
     field :image, :string
-    field :times_scanned, :integer
   end
 
 
@@ -24,7 +23,7 @@ defmodule ScanWeb.Schema.ProductTypes do
 
   object :product_mutations do
 
-    field :item, type: :string do
+    field :item, type: :item do
       arg :ean_code, non_null(:string)
 
       resolve fn _, args, _ ->
