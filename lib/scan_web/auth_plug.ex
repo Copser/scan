@@ -7,6 +7,7 @@ defmodule ScanWeb.AuthPlug do
   def call(conn, _) do
     conn
     |> authorize(get_req_header(conn, "authorization"))
+    |> put_private(:absinthe, %{context: %{viewer: Scan.Profile.first}})
   end
 
   def authorize(conn, ["Bearer " <> token]) do
