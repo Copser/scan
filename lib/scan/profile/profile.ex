@@ -5,4 +5,8 @@ defmodule Scan.Profile do
 
   defdelegate register_user(user_params), to: Action.User
   defdelegate update_profile(viewer, user_params), to: Action.User
+
+  def first do
+    Scan.Profile.Schema.User |> Scan.Repo.first
+  end
 end
