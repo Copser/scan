@@ -1,6 +1,8 @@
 defmodule ScanWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :scan
 
+  socket "/live", Phoenix.LiveView.Socket
+
   socket "/socket", ScanWeb.UserSocket,
     websocket: true,
     longpoll: false
