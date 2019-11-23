@@ -24,6 +24,7 @@ defmodule ScanWeb do
       import Plug.Conn
       import ScanWeb.Gettext
       alias ScanWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView.Controller
     end
   end
 
@@ -39,6 +40,10 @@ defmodule ScanWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      # Import LiveView configuratiin
+      import Phoenix.LiveView,
+      only: [live_render: 2, live_render: 3, live_link: 1, live_link: 2]
+
       import ScanWeb.ErrorHelpers
       import ScanWeb.Gettext
       alias ScanWeb.Router.Helpers, as: Routes
@@ -50,6 +55,7 @@ defmodule ScanWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 
